@@ -1,13 +1,13 @@
-# Sample Hardhat Project
+# Error with sapphire network and hardhat
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This is a minimal project to reproduce a bug when using "@oasisprotocol/sapphire-hardhat" in an hardhat project.
+The error comes when using 2 (or more) privates keys and try to make signed calls to public view functions.
+If the call is with the first account, it works, but with the second, there is the following error:
+"ProviderError: invalid signed simulate call query: signer != caller"
 
-Try running some of the following tasks:
+Try it yourself (two tesntnet accounts are setup with rose to pay fees):
 
 ```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
+npm install
+npx hardhat --network sapphire_testnet run scripts/index.ts
 ```
